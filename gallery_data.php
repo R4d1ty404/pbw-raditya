@@ -57,6 +57,7 @@
                                                         <div class="mb-3">
                                                             <label for="formGroupExampleInput2" class="form-label">Ganti Gambar</label>
                                                             <input type="file" class="form-control" name="gambar">
+                                                            <input type="hidden" name="id" value="<?= $row["id"] ?>">
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="formGroupExampleInput3" class="form-label">Gambar Lama</label>
