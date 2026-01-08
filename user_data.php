@@ -14,7 +14,7 @@
                     include "koneksi.php";
 
                     $hlm = (isset($_POST['hlm'])) ? $_POST['hlm'] : 1;
-                    $limit = 3;
+                    $limit = 5;
                     $limit_start = ($hlm - 1) * $limit;
                     $no = $limit_start + 1;
 
@@ -127,7 +127,7 @@
 
 
             <?php 
-            $sql1 = "SELECT * FROM user LIMIT $limit_start, $limit";
+            $sql1 = "SELECT * FROM user";
             $hasil1 = $conn->query($sql1); 
             $total_records = $hasil1->num_rows;
             ?>
