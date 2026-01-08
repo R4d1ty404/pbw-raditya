@@ -55,15 +55,6 @@
                                                 <form method="post" action="" enctype="multipart/form-data">
                                                     <div class="modal-body">
                                                         <div class="mb-3">
-                                                            <label for="formGroupExampleInput" class="form-label">Judul</label>
-                                                            <input type="hidden" name="id" value="<?= $row["id"] ?>">
-                                                            <input type="text" class="form-control" name="judul" placeholder="Tuliskan Judul Artikel" value="<?= $row["judul"] ?>" required>
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="floatingTextarea2">Isi</label>
-                                                            <textarea class="form-control" placeholder="Tuliskan Isi Artikel" name="isi" required><?= $row["isi"] ?></textarea>
-                                                        </div>
-                                                        <div class="mb-3">
                                                             <label for="formGroupExampleInput2" class="form-label">Ganti Gambar</label>
                                                             <input type="file" class="form-control" name="gambar">
                                                         </div>
