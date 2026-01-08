@@ -18,7 +18,7 @@
                     $limit_start = ($hlm - 1) * $limit;
                     $no = $limit_start + 1;
 
-                    $sql = "SELECT * FROM user";
+                    $sql = "SELECT * FROM user LIMIT $limit_start, $limit";
                     $hasil = $conn->query($sql);
 
                     while ($row = $hasil->fetch_assoc()) {
@@ -127,7 +127,7 @@
 
 
             <?php 
-            $sql1 = "SELECT * FROM user";
+            $sql1 = "SELECT * FROM user ";
             $hasil1 = $conn->query($sql1); 
             $total_records = $hasil1->num_rows;
             ?>
