@@ -100,38 +100,48 @@ include "koneksi.php";
         </section>
         <!-- article end -->
 
+        <?php
+        $sql_gallery = "SELECT gambar FROM gallery ORDER BY tanggal DESC";
+        $hasil_gallery = $conn->query($sql_gallery);
+        ?>
+
         <section id="gallery" class="text-center p-5 bg-danger-subtle text-dark">
             <div class="container">
-                <header><h1 class="fw-bold display-4 pb-3">Gallery</h1></header>  
+                <h1 class="fw-bold display-4 pb-3">Gallery</h1>
+
                 <div id="carouselExample" class="carousel slide">
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
-                        <img src="img/gambar1.png" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                        <img src="img/gambar2.png" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                        <img src="img/gambar3.png" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                        <img src="img/gambar4.png" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                        <img src="img/gambar5.png" class="d-block w-100" alt="...">
-                        </div>
+
+                        <?php
+                        $active = true;
+                        while ($row = $hasil_gallery->fetch_assoc()) {
+                        ?>
+                            <div class="carousel-item <?= $active ? 'active' : '' ?>">
+                                <img 
+                                    src="img/<?= htmlspecialchars($row['gambar']) ?>" 
+                                >
+                            </div>
+                        <?php
+                            $active = false;
+                        }
+                        ?>
+
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
+
+                    <button class="carousel-control-prev" type="button"
+                        data-bs-target="#carouselExample" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
+
+                    <button class="carousel-control-next" type="button"
+                        data-bs-target="#carouselExample" data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
                     </button>
-                </div>              
+                </div>
             </div>
         </section>
+
+
 
         <section id="schedule" class="text-center p-5 bg-body text-dark">
             <div class="container">
